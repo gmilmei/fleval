@@ -1,0 +1,7 @@
+/* fibonacci */
+fib:20 where {
+    def fib ← isint ≡
+        iszero            → ~0;
+        iszero ∘ (C:+:-1) → ~1;
+        ispos             →  add ∘ α:fib ∘ [C:+:-1,C:+:-2]
+}

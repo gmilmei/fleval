@@ -1,0 +1,41 @@
+Escape sequences for characters
+-------------------------------
+
+SEQUENCE                   CHARACTER
+
+\NUL\                      null (0x0)
+\a\                        alert/bell (0x7)
+\BEL\                      alert/bell (0x7)
+\b\                        backspace (0x8)
+\BS\                       backspace (0x8)
+\t\                        horizontal tab (0x9)
+\HT\                       horizontal tab (0x9)
+\TAB\                      horizontal tab (0x9)
+\n\                        new line (0xa)
+\LF\                       new line (0xa)
+\NL\                       new line (0xa)
+\e\                        escape (0x1b)
+\ESC\                      escape (0x1b)
+\v\                        vertical tab (0xb)
+\VT\                       vertical tab (0xb)
+\f\                        form feed (0xc)
+\FF\                       form fedd (0xc)
+\r\                        carriage return (0xd)
+\CR\                       carriage return (0xd)
+\FS\                       file separator (0x1c)
+\GS\                       group separator (0x1d)
+\RS\                       record separator (0x1e)
+\US\                       unit separator (0x1f)
+\SP\                       space (0x20)
+\SPACE\                    space (0x20)
+\"\                        " (0x22)
+\'\                        ' (0x27)
+\\                         \ (0x5c)
+\DEL\                      delete (0x7f)
+
+\u...\
+\U...\
+U/u followed by a sequence hexdecimal digits: Unicode code point
+
+\...\
+sequence of decimal digits: Unicode code point

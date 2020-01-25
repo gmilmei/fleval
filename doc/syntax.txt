@@ -1,0 +1,79 @@
+FL grammar
+----------
+
+expr ::= atom
+         name
+         seq
+         expr ':'p expr [application]
+         '(' expr ')'
+         expr 'where' env
+         expr' [primed expr]
+         '~'p expr [constant]
+         '['p expr,* ']' [construction]
+         '⟦'p expr,* '⟧' [predicate constr]
+         cond
+         expr expr expr [infix expr]
+         'λ' '(' pat ')' expr [lambda expr]
+
+atom ::= `character
+         number
+         'true'
+         'false'
+
+seq ::= '<' expr,* '>'
+        string
+
+string ::= '"' character* '"'
+
+cond ::= expr '→'p expr ';' expr
+         expr '→'p expr
+         pat '→' expr ';' expr
+         pat '→' expr
+
+pat ::= name.
+        name.expr
+        '⟦' patlist '⟧' [pat construction]
+        pat_expr expr pat [infix pat]
+        pat expr pat_expr [infix pat]
+        name.pat
+        'pat' '(' expr ';' patlist ')' [general pattern]
+        
+patlist ::= { pat_expr, }* pat {, pat_expr }*
+
+pat_expr ::= pat
+             expr
+
+env ::= '{' defn+ '}' [defn list]
+        'export' '(' name,+ ')' env
+        'hide' '(' name,+ ')' env
+        'lib' '(' string ')'
+        'PF'
+        env 'uses' env
+        env 'where' env
+        env 'union' env
+        'rec' '(' name,+ ')' env
+        '{' env '}'
+
+defn ::= 'def' name argexp '≡' expr
+         'nrdef' name argexp '≡' expr
+         'exdef' path argexp '≡' expr
+         'type' identifier '≡' pat_expr
+         'asn' expr '≡' pat_expr [assertion]
+         'sig' '::' mpred [signature]
+
+argexp ::= empty
+           '(' pat ')'+
+           '(' pat ')'* '←' pat_expr
+
+mpred ::= expr
+          'meta' '(' expr ')'
+          mpred '⇒' mpred
+          '⟦' mpred,* '⟧'
+          mpred '↤' mpred
+          mpred '↦' mpred
+          'seqof' ':' mpred
+          mpred '∧' mpred
+          mpred '∨' mpred
+          '¬' ':' mpred
+          '(' mpred ')'
+          'forall' '(' name,+ ')' mpred

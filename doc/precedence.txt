@@ -1,0 +1,23 @@
+Precedence of FL operators
+--------------------------
+
+EXPRESSION                 COMMENT
+
+e'                         PRIME
+~e                         TILDE
+e1 : e2                    Apply
+name.e  or  name.P         DOTTED_NAME
+e1 ∘ e2                    COMPOSITION
+e1 * e2  or  e1 / e2       MULTIPLY, DIVIDE
+e1 + e2  or  e1 - e2       ADD, SUBTRACT
+e1 = e2                    EQUAL
+e1 ↦ e2  or  e1 ↤ e2       PREDICATE_APPEND_LEFT, PREDICATE_APPEND_RIGHT
+P1 ⤇ P2  or  P1 ⤆ P2      PATTERN_APPEND_LEFT, PATTERN_APPEND_RIGHT
+e1 ∧ e2                    AND
+e1 ∨ e2                    OR
+e1 e2 e3                   Infix
+P → e1 ; e2  or  P → e1    ARROW_RIGHT
+e1 | e2                    REVERSE_COMPOSITION
+e where env
+λ(P)e
+fn ≡ e

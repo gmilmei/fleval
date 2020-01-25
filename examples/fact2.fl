@@ -1,0 +1,15 @@
+/* factorial, tail recursive, with error handling */
+<
+    fact:10,
+    (fact catch s2 ∘ s2):-10,
+    (fact catch s2 ∘ s2):2.3
+>
+where {
+    def fact  ← isint ≡
+        isneg → signal ∘ [~"fact",~"negative argument",id];
+        tt    → _fact ∘ [id,~1]
+    def _fact ≡
+        ⟦iszero,x.⟧ → x;
+        ⟦x.,    tt⟧ → _fact ∘ [dec ∘ x,mul]
+    def dec ≡ sub ∘ [id,~1]
+}

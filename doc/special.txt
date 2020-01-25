@@ -1,0 +1,42 @@
+FL special characters
+---------------------
+
+NAME                           ASCII       UNICODE
+
+BRACE_LEFT                     {           {
+BRACE_RIGHT                    }           }
+PAREN_LEFT                     (           (
+PAREN_RIGHT                    )           )
+TILDE                          ~           ~
+SEQUENCE_BRACKET_LEFT          <           <
+SEQUENCE_BRACKET_RIGHT         >           >
+DOUBLE_QUOTE                   "           "
+BACK_QUOTE                     `           `
+COMMA                          ,           ,
+SEMICOLON                      ;           ;
+APPLICATION_SIGN               :           :
+PERIOD                         .           .
+CONSTRUCTION_BRACKET_LEFT      [           [
+CONSTRUCTION_BRACKET_RIGHT     ]           ]
+EQUAL                          =           =
+ADD                            +           +
+SUBTRACT                       -           -
+MULTIPLY                       *           *
+PRIME                          '           '
+DIVIDE                         /           ÷
+COMPOSITION                    @           ∘
+REVERSE_COMPOSITION            !           |
+LAMBDA                         lambda      λ
+PREDICATE_CONSTRUCTION_LEFT    [|          ⟦
+PREDICATE_CONSTRUCTION_RIGHT   |]          ⟧
+DEFINITION_SYMBOL              ==          ≡
+ARROW_RIGHT                    ->          →
+ARROW_LEFT                     <-          ←
+PREDICATE_APPEND_LEFT          |->         ↦
+PREDICATE_APPEND_RIGHT         <-|         ↤
+AND                            /\          ∧
+OR                             \/          ∨
+NOT                            Not         ¬
+PATTERN_APPEND_LEFT            |=>         ⤇
+PATTERN_APPEND_RIGHT           <=|         ⤆
+FUNCTION_META_PREDICATE        =f=>        ⇒

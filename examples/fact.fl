@@ -1,0 +1,7 @@
+/* factorial */
+fact:10  where {
+    def fact ← isint ≡
+        isneg  → signal ∘ [~"fact",~"negative argument",id];
+        iszero → ~1;
+        tt     → mul ∘ [id,fact ∘ (C:add:-1)]
+}

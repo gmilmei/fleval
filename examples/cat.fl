@@ -1,0 +1,4 @@
+/* simulates cat command, tail recursive */
+(echo catch id):<"kbd","scr"> where {
+    def echo ≡ echo ∘ [s1,s2] ∘ [s1,s2,out ∘ [s2,[s3]]] ∘ [s1,s2,in ∘ s1]
+}

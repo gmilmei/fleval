@@ -1,0 +1,43 @@
+.TH FLEVAL 1 "21 January 2020" "FLEval 1.0" "User Commands"
+.SH NAME
+fleval \- FL evaluator
+
+.SH SYNOPSIS
+.B fleval
+[\fI\,OPTION\/\fR]... [\fI\,FILE\/\fR]
+
+Evaluate FL expression in \fI\,FILE\/\fR.
+
+.SH DESCRIPTION
+A naive evaluator for the programming language FL, as described in
+Backus et al., 1989.
+
+With \fI\,FILE\/\fR is omitted, start interactive evaluator.
+
+When \fI\,FILE\/\fR is \fB\--\fR, read standard input.
+
+.SH OPTIONS
+.TP
+\fB\-p\fR
+print the result of the evaluation
+.TP
+\fB\-L\fR \fI\,PATH\/\fR
+add \fI\,PATH\/\fR to search path for libraries
+.TP
+\fB\-c\fR
+check syntax of \fI\,FILE\/\fR
+.TP
+\fB\-to\-fl\fR
+convert standard input text to FL XML
+.TP
+\fB\-from\-fl\fR
+convert standard input FL XML to text
+.TP
+\fB\-V\fR, \fB\-\-version\fR
+display version and exit
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+display this help and exit
+
+.SH AUTHOR
+Written by Gérard Milmeister

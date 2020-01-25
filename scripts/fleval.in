@@ -1,0 +1,3 @@
+#!/bin/sh
+FLJAR=@JARDIR@/fleval.jar
+exec java -Xss256m -cp ${FLJAR} gemi.fl.main.FLEval "$@"

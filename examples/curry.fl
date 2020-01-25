@@ -1,0 +1,6 @@
+/* two versions of currying */
+(eq' ∘ (cons ∘ [curry1,curry2]):sub):5:3
+where {
+    def curry1 ≡ λ(f.isfunc) λ(x.) λ(y.) f:<x,y>
+    def curry2 (f.isfunc) (x.) (y.) ≡ f:<x,y>
+}

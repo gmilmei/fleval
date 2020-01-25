@@ -1,0 +1,33 @@
+/* complex datatype, with "overloading" of +, - */
+<
+    2.45 + 3.55,
+    c:<2,4> + c:<3,6>,
+    3.4 + c:<3,6>,
+    c:<3,6> + 2.5,
+    3.6 + 2.5,
+    c:<2,4> - c:<3,6>
+>
+where export(c,+,-) {
+
+    type complex ≡ ⟦real.isnum,imag.isnum⟧
+
+    def c ≡ mkcomplex
+
+    def + ≡
+        ⟦x.iscomplex,y.iscomplex⟧ →
+            [add∘s1,add∘s2] ∘ [[real∘s1,real∘s2],[imag∘s1,imag∘s2]] ∘ [x,y];
+        ⟦x.isnum,y.iscomplex⟧ →
+            [add∘s1,add∘s2] ∘ [[s1,real∘s2],[~0,imag∘s2]] ∘ [x,y];
+        ⟦x.iscomplex,y.isnum⟧ →
+            [add∘s1,add∘s2] ∘ [[real∘s1,s2],[imag∘s1,~0]] ∘ [x,y];
+        tt → (+ where PF) ∘ [x,y]
+
+    def - ≡
+        ⟦x.iscomplex,y.iscomplex⟧ →
+            [sub∘s1,sub∘s2] ∘ [[real∘s1,real∘s2],[imag∘s1,imag∘s2]] ∘ [x,y];
+        ⟦x.isnum,y.iscomplex⟧ →
+            [sub∘s1,sub∘s2] ∘ [[s1,real∘s2],[~0,imag∘s2]] ∘ [x,y];
+        ⟦x.iscomplex,y.isnum⟧ →
+            [sub∘s1,sub∘s2] ∘ [[real∘s1,s2],[imag∘s1,~0]] ∘ [x,y];
+        tt → (- where PF) ∘ [x,y]
+}

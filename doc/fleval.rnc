@@ -1,0 +1,47 @@
+# RNC schema for FLEval data input and output format
+
+start = FLEval
+
+FLEval =
+   element fleval {
+      Value
+   }
+
+Value =
+   Truth
+ | Character
+ | Integer
+ | Real
+ | String
+ | Seq
+
+Truth =
+   element truth {
+      "true"
+    | "false"
+   }
+
+Character =
+   element character {
+      xsd:string { length="1" }
+   }
+
+Integer =
+   element integer {
+      xsd:long
+   }
+
+Real =
+   element real {
+      xsd:double
+   }
+
+String =
+   element string {
+      text
+   }
+
+Seq =
+   element seq {
+      Value*
+   }
