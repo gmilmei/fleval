@@ -5,17 +5,13 @@ import static gemi.fl.evaluator.builtins.MiscFunctions.idValue;
 import static gemi.fl.evaluator.builtins.Predicates.ttValue;
 import static gemi.fl.parser.Utilities.indentln;
 
-import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
 import gemi.fl.parser.Expr;
-import gemi.fl.parser.Parser;
-import gemi.fl.scanner.ErrorHandler;
 import gemi.fl.scanner.Names;
-import gemi.fl.scanner.Scanner;
 
 public final class Pattern {
 
@@ -195,18 +191,5 @@ public final class Pattern {
         patternEnv.put("patcons", patcons);
         patternEnv.put(Names.PATTERN_APPEND_LEFT, patAppendLeft);
         patternEnv.put(Names.PATTERN_APPEND_RIGHT, patAppendRight);
-    }
-    
-    public static void main(String[] args) throws Exception {
-        String filename = "work/test.fl";
-        ErrorHandler errorHandler = new ErrorHandler(filename, System.err);
-        Scanner scanner = new Scanner(new FileReader(filename), errorHandler);
-        Parser parser = new Parser(scanner, errorHandler);
-        Expr expr = parser.parse();
-        expr = expr.cond();
-        expr.dump(0);
-        NaiveEvaluator evaluator = new NaiveEvaluator(PrimitiveFunctions.environment);
-        Pattern pattern = Pattern.makePattern(expr, evaluator, PrimitiveFunctions.environment);
-        pattern.dump();
     }
 }

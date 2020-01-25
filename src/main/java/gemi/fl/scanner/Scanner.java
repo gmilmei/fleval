@@ -2,7 +2,6 @@ package gemi.fl.scanner;
 
 import static gemi.fl.scanner.TokenType.*;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.HashMap;
@@ -536,17 +535,6 @@ public final class Scanner {
             if (tokenType.keyword) {
                 keywords.put(tokenType.name, tokenType);
             }
-        }
-    }
-
-    public static void main(String[] args) throws Exception {
-        String filename = "test.fl";
-        ErrorHandler errorHandler = new ErrorHandler(filename, System.err);
-        Scanner scanner = new Scanner(new FileReader(filename), errorHandler);
-        Token token = scanner.next();
-        while (token.type != EOF) {
-            System.out.println(token);
-            token = scanner.next();
         }
     }
 }

@@ -5,12 +5,12 @@ import static gemi.fl.parser.Patterns.patOrExpr;
 import static gemi.fl.scanner.TokenType.*;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 import java.util.Map.Entry;
 
-import gemi.fl.evaluator.*;
+import gemi.fl.evaluator.Libraries;
+import gemi.fl.evaluator.Pattern;
 import gemi.fl.parser.Patterns.PatOrExpr;
 import gemi.fl.scanner.ErrorHandler;
 import gemi.fl.scanner.Names;
@@ -862,19 +862,5 @@ public final class Parser {
 
     private final void error(int line, int col, String text) {
         errorHandler.error(line, col, text);
-    }
-
-    public static void main(String[] args) throws Exception {
-        String filename = "work/test.fl";
-        ErrorHandler errorHandler = new ErrorHandler(filename, System.err);
-        Scanner scanner = new Scanner(new FileReader(filename), errorHandler);
-        Parser parser = new Parser(scanner, errorHandler);
-        Expr expr = parser.parse();
-        if (errorHandler.errorCount > 0) return;
-        expr.dump(0);
-        NaiveEvaluator evaluator = new NaiveEvaluator(PrimitiveFunctions.environment);
-        Value value = evaluator.evaluate(expr);
-        System.out.println();
-        System.out.println("Result: "+value);
     }
 }
